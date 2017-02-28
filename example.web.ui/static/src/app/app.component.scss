@@ -1,0 +1,28 @@
+h1, h2 {
+  color: #eee;
+}
+.maintext {
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  label {
+    color: #eee;
+  }
+}
+
+.navbar-img {
+  width: 20px;
+}
+.navbar-default {
+  border: none;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fira Sans', sans-serif;;
+}
+p, div {
+  font-family: 'Source Sans Pro', sans-serif;;
+}

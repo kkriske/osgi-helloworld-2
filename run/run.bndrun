@@ -1,0 +1,22 @@
+-runfw: org.apache.felix.framework;version='[5.6.2,5.6.2]'
+-runee: JavaSE-1.8
+-runprovidedcapabilities: ${native_capability}
+
+-resolve.effective: active;skip:="osgi.service"
+
+-resolve: auto
+
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.configadmin)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.eventadmin)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.metatype)',\
+	osgi.identity;filter:='(osgi.identity=slf4j.simple)',\
+	osgi.identity;filter:='(osgi.identity=com.eclipsesource.jaxrs.publisher)',\
+	osgi.identity;filter:='(osgi.identity=example.impl)',\
+	osgi.identity;filter:='(osgi.identity=example.rest.impl)',\
+	osgi.identity;filter:='(osgi.identity=example.web)',\
+	osgi.identity;filter:='(osgi.identity=example.web.ui)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.webconsole)'
+
