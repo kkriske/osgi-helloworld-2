@@ -1,0 +1,8 @@
+include 'cnf',
+		'example.api',
+		'example.impl',
+		'example.rest.api',
+		'example.rest.impl',
+		'example.web',
+		'example.web.ui',
+		'example.web.ui/static'

@@ -1,6 +1,6 @@
 -buildpath: \
 	osgi.annotation;version=6.0.1,\
-	com.eclipsesource.jaxrs.jersey-all
+	com.eclipsesource.jaxrs.jersey-min
 -baseline: *
 javac.source: 1.8
 javac.target: 1.8

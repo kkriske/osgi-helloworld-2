@@ -4,11 +4,17 @@
 		local=${workspace}/cnf/localrepo; \
 		pretty=true
 
+#-plugin.2.Release: \
+#	aQute.bnd.deployer.repository.LocalIndexedRepo; \
+#		name=Release; \
+#		local=${workspace}/cnf/release; \
+#		pretty=true
+
 -plugin.2.Release: \
-	aQute.bnd.deployer.repository.LocalIndexedRepo; \
-		name=Release; \
-		local=${workspace}/cnf/release; \
-		pretty=true
+	aQute.bnd.repository.maven.provider.MavenBndRepository; \
+		releaseUrl=http://localhost:3081/maven/1d179e39-a095-4fd5-9bdb-6b916019f7d0; \
+		index=${.}/release.maven; \
+		name=Release;
 
 -plugin.central = \
     aQute.bnd.repository.maven.provider.MavenBndRepository; \
@@ -17,5 +23,10 @@
         name="Central"
 
 -releaserepo: Release
+
+-baseline: *
+
+-removeheaders: Created-By, Tool, Bnd-LastModified
+-diffignore: Created-By, Tool, Bnd-LastModified
 
 junit: org.apache.servicemix.bundles.junit; version=4.12

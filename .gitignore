@@ -4,3 +4,7 @@
 **/bin
 **/generated
 **/bin_test
+
+build/
+
+\.sonarlint/

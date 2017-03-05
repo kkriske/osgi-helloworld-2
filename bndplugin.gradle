@@ -1,0 +1,17 @@
+rootProject.ext.bndPlugin = bndPlugin
+
+class bndPlugin implements Plugin<Project> {
+
+    @Override
+    void apply(Project project) {
+		project.configure(project) {
+			repositories {
+				maven {
+					url "https://plugins.gradle.org/m2/"
+				}
+			}
+			apply plugin: 'biz.aQute.bnd'
+			apply plugin: 'jacoco'
+		}
+    }
+}

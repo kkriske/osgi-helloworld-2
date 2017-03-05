@@ -1,7 +1,7 @@
 package example.impl;
 
 import example.api.Greeter;
-import org.osgi.service.component.annotations.*;
+import org.osgi.service.component.annotations.Component;
 
 @Component
 public class GreeterComponent implements Greeter {

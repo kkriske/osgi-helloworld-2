@@ -1,0 +1,78 @@
+rootProject.ext.ngPlugin = ngPlugin
+
+class ngPlugin implements Plugin<Project> {
+
+    @Override
+    void apply(Project p) {
+		p.configure(p) {
+		
+			def split = p.name.split("/")
+		
+			if(split.length != 2 || split[1] != "static") {
+				throw new GradleException('expected Angular project to be in a subsubproject in a "static" folder.')
+			}
+			
+			def par
+			try {
+				par = project(":" + split[0])
+			} catch (Exception e) {
+				throw new GradleException('expected Angular project to be a subsubproject.')
+			}
+			
+			if (par == rootProject) {
+				throw new GradleException('expected Angular project to be a subsubproject.')
+			}
+			
+			if (!par.tasks.findByPath('jar') || !par.tasks.findByPath('test')) {
+				throw new GradleException('expected parent project to have the tasks "jar" and "test"')
+			}
+			
+			sonarqube {
+				properties {
+					property 'sonar.sources', 'src/app'
+					property 'sonar.exclusions', '**/node_modules/**'
+					property 'sonar.tests', 'src/app'
+					property 'sonar.test.inclusions', '**/*.spec.ts'
+
+					property 'sonar.ts.tslint.configPath', 'tslint.json'
+					property 'sonar.ts.coverage.lcovReportPath', 'coverage/lcov.info'
+				}
+			}
+		
+			apply plugin: 'com.moowork.node'
+		  
+			p.tasks.create('ngInstall', NpmTask) {
+				args = ['install']
+				doLast {
+					println ''
+				}
+			}
+
+			p.tasks.create('ngBuild', NpmTask) {
+				description 'build angular bundles'
+				group 'Build'
+				outputs.files('/dist') //dir for UP TO DATE checking
+				inputs.files('/') //dir for UP TO DATE checking
+				args = ['run', 'ng', '--', 'build', '-pr', 'false']
+				doLast {
+					println ''
+				}
+			}
+
+			ngBuild.dependsOn ngInstall
+			par.tasks['jar'].dependsOn ngBuild
+
+			p.tasks.create('ngTest', NpmTask) {
+				description 'test angular bundles'
+				group 'Verification'
+				args = ['run', 'ng', '--', 'test', '-sr', '-cc', '-pr', 'false']
+				doLast {
+					println ''
+				}
+			}
+		
+			ngTest.dependsOn ngInstall
+			par.tasks['test'].dependsOn ngTest
+		}
+    }
+}

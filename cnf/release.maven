@@ -1,0 +1,6 @@
+osgi-helloworld-2:example.api:1.0.0.201703032117
+osgi-helloworld-2:example.impl:0.0.0.201703032117
+osgi-helloworld-2:example.rest.api:1.0.0.201703032117
+osgi-helloworld-2:example.rest.impl:0.0.0.201703032117
+osgi-helloworld-2:example.web:0.0.0.201703032117
+osgi-helloworld-2:example.web.ui:0.0.0.201703032117

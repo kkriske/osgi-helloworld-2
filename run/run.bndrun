@@ -20,3 +20,26 @@
 	osgi.identity;filter:='(osgi.identity=example.web.ui)',\
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.webconsole)'
 
+-runbundles: \
+	com.eclipsesource.jaxrs.publisher;version='[3.2.0,3.2.1)',\
+	example.api;version=snapshot,\
+	example.impl;version=snapshot,\
+	example.rest.api;version=snapshot,\
+	example.rest.impl;version=snapshot,\
+	example.web;version=snapshot,\
+	example.web.ui;version=snapshot,\
+	org.apache.commons.fileupload;version='[1.3.2,1.3.3)',\
+	org.apache.commons.io;version='[2.5.0,2.5.1)',\
+	org.apache.felix.configadmin;version='[1.8.14,1.8.15)',\
+	org.apache.felix.eventadmin;version='[1.4.8,1.4.9)',\
+	org.apache.felix.gogo.command;version='[1.0.2,1.0.3)',\
+	org.apache.felix.gogo.runtime;version='[1.0.0,1.0.1)',\
+	org.apache.felix.gogo.shell;version='[1.0.0,1.0.1)',\
+	org.apache.felix.http.jetty;version='[3.4.2,3.4.3)',\
+	org.apache.felix.http.servlet-api;version='[1.1.2,1.1.3)',\
+	org.apache.felix.metatype;version='[1.1.2,1.1.3)',\
+	org.apache.felix.scr;version='[2.0.8,2.0.9)',\
+	org.apache.felix.webconsole;version='[4.3.0,4.3.1)',\
+	slf4j.api;version='[1.7.24,1.7.25)',\
+	slf4j.simple;version='[1.7.24,1.7.25)',\
+	com.eclipsesource.jaxrs.jersey-min;version='[2.22.2,2.22.3)'
