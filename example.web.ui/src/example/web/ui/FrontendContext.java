@@ -28,8 +28,10 @@ public class FrontendContext implements HttpContext {
 		//if("/".equals(name))
 		//	name+="index.html";
 		//return base.getResource("/app" + name);
-		if (name.isEmpty() || "/".equals(name)) name += "index.html";
-        return base.getResource("/app" + name);
+		//if (name.isEmpty() || "/".equals(name)) name += "index.html";
+        //return base.getResource("/app" + name);
+		if (name.isEmpty()) name += "index.html";
+        return base.getResource("/app/" + name);
 	}
 
 	@Override

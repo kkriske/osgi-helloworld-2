@@ -1,10 +1,9 @@
-.gradle/
+.gradle
 .metadata
 .recommenders
+.sonarlint
+build
+**/.settings
 **/bin
 **/generated
 **/bin_test
-
-build/
-
-\.sonarlint/

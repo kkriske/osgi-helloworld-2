@@ -17,14 +17,14 @@ public class Frontend {
 	protected void setHttpService(HttpService httpService) {
 		//this.httpService = httpService;
 		try {
-			httpService.registerResources("/*", "/", new FrontendContext(httpService));
+			httpService.registerResources("/", "/", new FrontendContext(httpService));
 		} catch (NamespaceException e) {
 			logger.error("Frontend endpoint registration failed.", e);
 		}
 	}
 
 	protected void unsetHttpService(HttpService httpService) {
-		httpService.unregister("/*");
+		httpService.unregister("/");
 		//this.httpService = null;
 	}
 	

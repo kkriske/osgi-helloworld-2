@@ -2,8 +2,8 @@ rootProject.ext.ngPlugin = ngPlugin
 
 class ngPlugin implements Plugin<Project> {
 
-    @Override
-    void apply(Project p) {
+	@Override
+	void apply(Project p) {
 		p.configure(p) {
 		
 			def split = p.name.split("/")

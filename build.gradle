@@ -14,14 +14,14 @@ plugins {
 }
 
 subprojects {
-    sonarqube {
-        String projectKey = project.name.replaceAll("(.*)/(.*)", "\$1:\$2")
-        String sonarModuleKey = rootProject.group + ':' + rootProject.name + ':' + projectKey
+	sonarqube {
+		String projectKey = project.name.replaceAll("(.*)/(.*)", "\$1:\$2")
+		String sonarModuleKey = rootProject.group + ':' + rootProject.name + ':' + projectKey
 
-        properties {
-            property 'sonar.moduleKey', sonarModuleKey
-        }
-    }
+		properties {
+			property 'sonar.moduleKey', sonarModuleKey
+		}
+	}
 }
 
 apply from: 'bndplugin.gradle'
